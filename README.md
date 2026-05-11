@@ -12,3 +12,8 @@ Publisher:
 ## Sending and Processing Event
 ![alt text](assets\send-process-event.png)
 Penjelasan: Program publisher me-*send* data berupa UserCreatedEventMessage. Pesan tersebut diterima oleh message broker RabbitMQ. Saat ada subscriber yang aktif di RabbitMQ, maka pesannya akan diberikan ke subscriber tersebut yang lalu diprocess sesuai dengan yang diperlukan.
+
+## Monitoring Chart based on Publisher
+![alt text](assets\monitoring-publisher.png)
+Penjelasan: Grafik message rates menvisualisasikan rate dari pesan yang diterima oleh RabbitMQ. Di program yang sudah dibuat, pesan ini dikirim oleh program publisher.
+
