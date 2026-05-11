@@ -17,3 +17,6 @@ Penjelasan: Program publisher me-*send* data berupa UserCreatedEventMessage. Pes
 ![alt text](assets\monitoring-publisher.png)
 Penjelasan: Grafik message rates menvisualisasikan rate dari pesan yang diterima oleh RabbitMQ. Di program yang sudah dibuat, pesan ini dikirim oleh program publisher.
 
+## Simulation Slow Subscriber
+![alt text](assets\simulate-slow.png)
+Penjelasan: Saat subscriber tidak kuat memprocess traffic yang datang, RabbitMQ akan menyimpan sementara sampai bisa diprocess oleh subscriber. Ini terlihat dari grafik queued message yang naik hingga 3. Ini memastikan data yang diterima benar-benar diprocess oleh subscriber dan tidak hilang.
