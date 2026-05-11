@@ -20,3 +20,11 @@ Penjelasan: Grafik message rates menvisualisasikan rate dari pesan yang diterima
 ## Simulation Slow Subscriber
 ![alt text](assets\simulate-slow.png)
 Penjelasan: Saat subscriber tidak kuat memprocess traffic yang datang, RabbitMQ akan menyimpan sementara sampai bisa diprocess oleh subscriber. Ini terlihat dari grafik queued message yang naik hingga 3. Ini memastikan data yang diterima benar-benar diprocess oleh subscriber dan tidak hilang.
+
+## Running 3 Subscriber
+![alt text](assets\3-sub.png)
+![alt text](assets\rabbit-3-sub.png)
+Penjelasan: Ketika menjalankan tiga program subscriber secara bersamaan, RabbitMQ secara otomatis mendistribusikan pesan-pesan dari publisher kepada ketiga subscriber tersebut secara bergantian. Terlihat bahwa RabbitMQ juga berfungsi ganda sebagai load balancer yang membuat tugas pemrosesan tidak dibebankan pada satu program saja, melainkan dibagi rata ke semua instance subscriber yang aktif. Pendekatan ini sangat penting dalam arsitektur skala besar untuk mempercepat waktu pemrosesan secara keseluruhan dan mencegah sistem kewalahan saat menghadapi antrean data yang besar.
+
+## Reflection Tutorial A
+Tutorial A memberikan saya pemahaman praktis yang kuat tentang bagaimana Event-Driven Architecture bekerja. Saya belajar menerapkan Evend-Driven Architechture menggunakan Rust dan RabbitMQ. Selain itu, saya belajar bagaimana memisahkan komponen sistem menjadi publisher yang memproduksi event dan subscriber yang memprosesnya secara asinkron tanpa harus saling terikat erat. Simulasi slow subscriber memberikan saya informasi pentingnya peran message broker sebagai buffer untuk menahan lonjakan traffic. Selain itu, eksperimen dengan menjalankan banyak subscriber mengajarkan saya tentang konsep pembagian beban kerja secara terdistribusi. Secara keseluruhan, pemahaman tentang message queuing ini menjadi fondasi untuk merancang arsitektur microservices yang kuat dan skalabel di kemudian hari.
