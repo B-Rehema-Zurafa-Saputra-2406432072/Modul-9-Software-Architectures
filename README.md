@@ -7,23 +7,23 @@ Publisher:
 2. URL yang sama berarti program publisher dan program subscriber sama-sama terhubung ke instans message broker (RabbitMQ) yang sama. Ini  agar arsitektur event-driven ini bisa berjalan dengan benar dengan publisher mempublikasikan pesan ke sebuah tempat dan subscriber mendengarkan di tempat yang sama sehingga pesan dari publisher bisa diterima dan diproses oleh subscriber.
 
 ## Running RabbitMQ
-![Running RabbitMQ](assets\running-rabbitmq.png)
+![Running RabbitMQ](assets/running-rabbitmq.png)
 
 ## Sending and Processing Event
-![alt text](assets\send-process-event.png)
+![alt text](assets/send-process-event.png)
 Penjelasan: Program publisher me-*send* data berupa UserCreatedEventMessage. Pesan tersebut diterima oleh message broker RabbitMQ. Saat ada subscriber yang aktif di RabbitMQ, maka pesannya akan diberikan ke subscriber tersebut yang lalu diprocess sesuai dengan yang diperlukan.
 
 ## Monitoring Chart based on Publisher
-![alt text](assets\monitoring-publisher.png)
+![alt text](assets/monitoring-publisher.png)
 Penjelasan: Grafik message rates menvisualisasikan rate dari pesan yang diterima oleh RabbitMQ. Di program yang sudah dibuat, pesan ini dikirim oleh program publisher.
 
 ## Simulation Slow Subscriber
-![alt text](assets\simulate-slow.png)
+![alt text](assets/simulate-slow.png)
 Penjelasan: Saat subscriber tidak kuat memprocess traffic yang datang, RabbitMQ akan menyimpan sementara sampai bisa diprocess oleh subscriber. Ini terlihat dari grafik queued message yang naik hingga 3. Ini memastikan data yang diterima benar-benar diprocess oleh subscriber dan tidak hilang.
 
 ## Running 3 Subscriber
-![alt text](assets\3-sub.png)
-![alt text](assets\rabbit-3-sub.png)
+![alt text](assets/3-sub.png)
+![alt text](assets/rabbit-3-sub.png)
 Penjelasan: Ketika menjalankan tiga program subscriber secara bersamaan, RabbitMQ secara otomatis mendistribusikan pesan-pesan dari publisher kepada ketiga subscriber tersebut secara bergantian. Terlihat bahwa RabbitMQ juga berfungsi ganda sebagai load balancer yang membuat tugas pemrosesan tidak dibebankan pada satu program saja, melainkan dibagi rata ke semua instance subscriber yang aktif. Pendekatan ini sangat penting dalam arsitektur skala besar untuk mempercepat waktu pemrosesan secara keseluruhan dan mencegah sistem kewalahan saat menghadapi antrean data yang besar.
 
 ## Reflection Tutorial A
